@@ -13,7 +13,7 @@ export class UsersService {
     return await this.userRepository.find();
   }
 
-  async findOne(id: number): Promise<User | null> {
+  async findOne(id: string): Promise<User | null> {
     return await this.userRepository.findOneBy({ id });
   }
 
