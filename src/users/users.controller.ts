@@ -10,6 +10,8 @@ import {
 import { UsersService } from './users.service';
 import { User } from './schemas/user.entity';
 import { DeleteResult, UpdateResult } from 'typeorm';
+import { Roles } from '../decorators/roles.decorator';
+import { userRoles } from './roles.enum';
 
 @Controller('users')
 export class UsersController {
@@ -26,6 +28,7 @@ export class UsersController {
   }
 
   @Post()
+  @Roles(userRoles.Admin)
   async createUser(@Body() user: User): Promise<User> {
     return this.usersService.create(user);
   }
