@@ -6,6 +6,7 @@ import { UsersModule } from './users/users.module';
 import { User } from './users/schemas/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { ItemsModule } from './items/items.module';
+import { Item } from './items/schemas/item.entity';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { ItemsModule } from './items/items.module';
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
-      entities: [User],
+      entities: [User, Item],
       synchronize: true,
       autoLoadEntities: true,
     }),
