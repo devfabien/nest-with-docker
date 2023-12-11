@@ -15,7 +15,11 @@ export class AuthService {
       throw new UnauthorizedException('No user with those credentials');
     }
 
-    const payload = { userName: user?.userName, role: user?.role };
+    const payload = {
+      userName: user?.userName,
+      role: user?.role,
+      id: user.id,
+    };
     return {
       userInfo: user,
       access_token: await this.jwtService.signAsync(payload),
