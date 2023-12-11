@@ -13,4 +13,7 @@ export class Item {
 
   @Column()
   quantity: number;
+
+  @Column()
+  userId: string;
 }
